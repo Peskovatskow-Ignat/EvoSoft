@@ -82,7 +82,7 @@ if __name__ == "__main__":
     sleep(randint(3, 7))
     for value in posted_list:
         list_link = get_post(value.get("id_post"))
-        sleep(randint(5, 10))
         print(f"Post id: {value.get('id')}")
         print(f"    text: {value.get('text')}")
         print(f"        link_user: {', '.join(list_link)}")
+        sleep(randint(5, 10))

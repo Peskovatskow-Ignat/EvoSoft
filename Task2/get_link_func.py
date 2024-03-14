@@ -2,14 +2,15 @@ import requests
 from config import cookies_link, headers_link
 
 
-def get_user_link(data: dict, list_link: list) -> list[str]:
-    """
+def get_user_link(data: dict[any, any], list_link: list) -> list[str]:
+    """Извлекает ссылки на пользователей Twitter из вложенных словарей
+
     Args:
-        data (dict): _description_
+        data (dict[any, any]): _description_
         list_link (list): _description_
 
     Returns:
-        list[str]: _description_
+        None
     """
     if len(list_link) >= 3:
         return
@@ -24,22 +25,22 @@ def get_user_link(data: dict, list_link: list) -> list[str]:
             get_user_link(item, list_link)
 
 
-def get_post(posts_id: str) -> dict[any, any]:
+def get_post(posts_id: str) -> list[str]:
     from config import proxies
-    """
+    """Получает информацию о посте с Twitter.
+
     Args:
-        posts_id (str): _description_
+        posts_id (str): Идентификатор поста.
 
     Returns:
-        dict[any, any]: _description_
+        list[str]: Информация о посте.
     """
     proxies = proxies
 
     cookies = cookies_link
-    
-    headers_link['referer'] = headers_link['referer'].format(posts_id = posts_id)
-    
-    
+
+    headers_link["referer"] = headers_link["referer"].format(posts_id=posts_id)
+
     params = {
         "variables": '{"focalTweetId":"'
         + posts_id

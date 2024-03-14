@@ -6,16 +6,17 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from bs4 import BeautifulSoup
 import csv
-from typing import Iterable
+from typing import Iterable, Iterator
 
 
 def get_page(url: str) -> str | None:
-    """
+    """Загружает содержимое веб-страницы.
+
     Args:
-        url (str): _description_
+        url (str): URL-адрес веб-страницы.
 
     Returns:
-        str | None: _description_
+        str | None: Содержимое веб-страницы в виде HTML-разметки, либо None в случае ошибки.
     """
     try:
         driver.get(url)
@@ -56,16 +57,17 @@ def get_page(url: str) -> str | None:
         return None
 
 
-def generate_csv_data(page: str) -> Iterable[list[str]]:
-    """
+def generate_csv_data(page: str) -> Iterator[Iterable[list[str]]]:
+    """Генерирует данные CSV из HTML-страницы.
+
     Args:
-        page (str): _description_
+        page (str): Содержимое HTML-страницы.
 
     Returns:
-        Iterable[list[str]]: _description_
+        Iterable[list[str]]: Итерируемый объект, содержащий списки строк для CSV.
 
     Yields:
-        Iterator[Iterable[list[str]]]: _description_
+        Iterator[Iterable[list[str]]]: Итератор, генерирующий списки строк для CSV.
     """
     soup = BeautifulSoup(page, "html.parser")
     contents = soup.find_all("tr")

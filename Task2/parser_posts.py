@@ -5,9 +5,15 @@ from get_link_func import get_post
 from config import cookies_post, proxies
 
 
-def get_post_text(data, new_list: list) -> list[dict[str, (str | int)]]:
-    """
-    
+def get_post_text(data, new_list: list) -> None:
+    """Извлекает текст постов из вложенных словарей.
+
+    Args:
+        data: Данные для извлечения текста постов.
+        new_list (list): Список, в который будут добавляться извлеченные тексты постов.
+
+    Returns:
+        None
     """
     if len(new_list) >= 10:
         return

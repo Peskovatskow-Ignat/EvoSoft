@@ -25,7 +25,7 @@
     <p>Все дополнительные библиотеки возьмём из файла <code>requirements.txt</code></p>
     <pre><code>pip install -r requirements.txt</code></pre>
     <h1 id="config">Содерживое config.py</h1>
-    <p>Так же для конфиденциальности я использовал файл <code>config.py</code> так как в файт <code>.env</code> нет возможности записать словарь. Этот файл должен находиться в папке Task2</p>
+    <p>Так же для конфиденциальности я использовал файл <code>config.py</code> так как в файт <code>.env</code> нет возможности записать словарь. Этот файл должен находиться в папке Task2. Данные для него я брал с сайта <a href="https://curlconverter.com/">curlconverter</a></p>
     <pre><code>cookies_post = {
 cookies с профиля пользователя
 }

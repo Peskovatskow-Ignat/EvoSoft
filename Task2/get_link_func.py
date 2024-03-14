@@ -27,6 +27,7 @@ def get_user_link(data: dict[any, any], list_link: list) -> list[str]:
 
 def get_post(posts_id: str) -> list[str]:
     from config import proxies
+
     """Получает информацию о посте с Twitter.
 
     Args:
